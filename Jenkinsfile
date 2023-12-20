@@ -33,7 +33,9 @@ pipeline {
         }
     }
     post{
+        always{
            junit 'src/reports/*-jupiter.xml'
+        }
     }
 
 }
