@@ -1,6 +1,9 @@
 pipeline {
 
     agent any
+    environment {
+        LOG_JUNIT_RESULTS='true'
+    }
     stages {
 
         stage('Checkout Codebase'){
@@ -35,6 +38,7 @@ pipeline {
     post{
         always{
            junit 'src/reports/*-jupiter.xml'
+           influxDbPublisher(selectedTarget: 'junit-test-data')
         }
     }
 
