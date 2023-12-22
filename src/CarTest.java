@@ -13,7 +13,7 @@ public class CarTest {
         System.out.println("Running Test 1!");
         try{
         Thread.sleep(1000);
-        }
+        }catch(InterruptedException e){}
         finally{
         Assertions.assertEquals(make, "Hondas","Expected vehicle make did not match actual vehicle make"); 
         }
